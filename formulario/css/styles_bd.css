@@ -1,0 +1,12 @@
+body{
+    background: aqua;
+}
+.box{
+    width: 200px;
+    height: 200px;
+    background: silver;
+    margin: auto;
+}
+h1{
+    text-align: center;
+}
