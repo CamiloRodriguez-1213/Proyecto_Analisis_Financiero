@@ -10,18 +10,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Productos <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="ventas.php">Ventas </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="inventario.php">Inventario</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-                
-            </li>
+            
             <li>
                 
             </li>

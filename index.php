@@ -30,17 +30,18 @@
     <div class="row justify-content-around sm-12 md-4">
         <?php while($mostrar=mysqli_fetch_array($result)){?>
             <div class="col">
-                <div>
+                <button class="btn">
                 <div class="card" style="width: 14rem;">
                 <?php echo '<img  class="img1 " src ="'.$mostrar['imagen_producto'].'" width="100%" height="100%">' ?>
                         <div class="card-body">
                             <h4><?= $mostrar['nombre_producto'] ?></h4>
                             <h4><small>$<?= $mostrar['precio_unitario'] ?></small></h4>
                             <p class="card-text"> Especificacion.</p>
+                            <input type="text" hidden id="ver_producto" name="ver_producto" value="<?php echo $mostrar['id'] ?>">
                         </div>
                     </div>
-                </div>
-                </div>
+                </button>
+            </div>
         <?php } ?>
     </div>
 </body>

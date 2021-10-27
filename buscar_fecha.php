@@ -1,7 +1,16 @@
 <?php 
     include('includes/db.php');
+    
     $buscar=$_POST["fecha"];
-    $sql = "SELECT * FROM inventario WHERE fecha ='$buscar'";
+    $dia=$_POST["dia"];
+    $mes=$_POST["mes"];
+    $anio=$_POST["anio"];
+    $anio_actual=date('Y');
+    $mes_actual=date('M');
+    $dia_actual=date('D');
+    $sql="SELECT * FROM inventario WHERE MONTH(fecha)=$mes AND YEAR(fecha)=$anio_actual" ;
+
+    $sql2 = "SELECT * FROM inventario WHERE fecha ='$buscar'";
     $res = DB::query($sql);
 ?>
 <!DOCTYPE html>
@@ -14,6 +23,9 @@
     
 </head>
 <body>
+    <?php
+    echo $anio_actual
+    ?>
 <table style="width: 100%; height: 100px;" border cellpadding=10 cellspacing=0>
         <tr>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
