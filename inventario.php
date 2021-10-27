@@ -104,31 +104,23 @@ $res = DB::query($sql);
         </tr>
         <tr>
         <?php
-
-
             if(isset($_POST["dia"])){
                 $dia=$_POST["dia"];
                 $sq= "SELECT * FROM inventario WHERE DAY(fecha)=$dia";
                 imp($sq);
                 
-            }else{
-                $dia=2;
             }
             if(isset($_POST["mes"])){
                 $mes=$_POST["mes"];
                 $sq= "SELECT * FROM inventario WHERE MONTH(fecha)=$mes";
                 imp($sq);
                 
-            }else{
-                $mes=1;
             }
             if(isset($_POST["anio"])){
                 $anio=$_POST["anio"];
                 $sq= "SELECT * FROM inventario WHERE MONTH(fecha)=$mes";
                 imp($sq);
                 
-            }else{
-                $anio=1;
             }
             
             
