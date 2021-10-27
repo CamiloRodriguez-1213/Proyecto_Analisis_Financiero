@@ -23,21 +23,23 @@
       <img class="d-block w-100" src="https://cdn2.hubspot.net/hubfs/3815039/Blog_GrupoBIT_1600x478px_29042020.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
+      <img class="d-block w-100" src="https://cdn2.hubspot.net/hubfs/3815039/Blog_GrupoBIT_1600x478px_29042020.jpg" alt="Third slide">
     </div>
   </div>
 </div>
-    <div class="row justify-content-around sm-11 md-4">
+    <div class="row justify-content-around sm-12 md-4">
         <?php while($mostrar=mysqli_fetch_array($result)){?>
-                <div class="col-3">
-                    <div class="card" style="width: 15rem;">
-                    <img class="zoom mt-3" src="data:image/jpg;base64,<?php echo base64_encode($mostrar['imagen_producto']) ?>" height="108rem" class="card-img-top" >
+            <div class="col">
+                <div>
+                <div class="card" style="width: 14rem;">
+                <?php echo '<img  class="img1 " src ="'.$mostrar['imagen_producto'].'" width="100%" height="100%">' ?>
                         <div class="card-body">
                             <h4><?= $mostrar['nombre_producto'] ?></h4>
                             <h4><small>$<?= $mostrar['precio_unitario'] ?></small></h4>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
+                </div>
                 </div>
         <?php } ?>
     </div>

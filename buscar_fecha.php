@@ -35,7 +35,7 @@
             </form>
         </div>
         </tr>
-            <tr style="align-items: center; background-color: yellow; font-size: smaller;">
+            <tr class="bg-secondary" style="--bs-bg-opacity: .15; align-items: center; font-size: smaller;">
                 <td>ID</td>
                 <td>NOMBRE PRODUCTO</td>
                 <td>CATEGORÍA</td>

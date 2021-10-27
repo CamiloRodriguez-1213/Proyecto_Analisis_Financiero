@@ -7,9 +7,9 @@
     <?php include 'accesorios/navbar.php' ?>
 </head>
 <body>
-    <div class="container bg-secondary" style="--bs-bg-opacity: .15; max-width: 500px;" >
+    <div class="container bg-secondary" style="--bs-bg-opacity: .1; max-width: 500px;" >
     
-        <form action="guardar_persona.php" style="justify-items: center;;" method="post">
+        <form action="guardar_producto.php" method="post" enctype="multipart/form-data">
             
             <div class="container my-2" style="height: 500px; width: 400px;">
             <div>
@@ -31,7 +31,11 @@
             </div>
             <div class="form-group">
                 <label for="">Precio Unitario</label><br>
-                <input type="text" name="pre_unitario"><br><br>
+                <input type="text" name="pre_unitario"><br>
+            </div>
+            <div class="form-group">
+                <label for="">Imagen Producto</label><br>
+                <input required type="file" name="imagen_producto" accept="image/*"/><br><br>
             </div>
             <div>
                 <button type="submit">Guardar</button>
