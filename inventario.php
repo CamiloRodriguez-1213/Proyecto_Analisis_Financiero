@@ -1,9 +1,12 @@
 <?php 
     include('includes/db.php');
-    $buscar=$_POST["fecha"];
-    $sql = "SELECT * FROM inventario WHERE fecha ='$buscar'";
-    $res = DB::query($sql);
+
+    $sql = "select * from inventario";
+    
+    $result = DB::query($sql);
+
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,7 +17,8 @@
     
 </head>
 <body>
-<table style="width: 100%; height: 100px;" border cellpadding=10 cellspacing=0>
+    
+        <table style="width: 100%; height: 100px;" border cellpadding=10 cellspacing=0>
         <tr>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <div class="row ">
@@ -35,7 +39,7 @@
             </form>
         </div>
         </tr>
-            <tr style="align-items: center; background-color: yellow; font-size: smaller;">
+            <tr class="bg-dark" style="align-items: center; font-size: smaller; --bs-bg-opacity: .20;">
                 <td>ID</td>
                 <td>NOMBRE PRODUCTO</td>
                 <td>CATEGORÍA</td>
@@ -45,11 +49,8 @@
                 <td>FECHA</td>
                 
             </tr>
-            <?php 
-            $con=0;$igual=0;$acum=0;$acm=0;$val=0;
-            while($mostrar=mysqli_fetch_array($res)){ 
-                $con++;?>
-                <tr style="font-size: smaller;">
+            <?php while($mostrar=mysqli_fetch_array($result)){ ?>
+                <tr style="font-size: small;">
                     <td><?= $mostrar['id'] ?></td>
                     <td><?= $mostrar['nombre_producto'] ?></td>
                     <td><?= $mostrar['categoria'] ?></td>
@@ -60,33 +61,11 @@
                 </tr>
                 <div>
             
-            <?php 
-                $acum=$acum+$mostrar['precio_total'];
-                $acm=($acm+$mostrar['precio_total']*0.19);
-            } ?>
+            <?php } ?>
 
-            <tfoot >
-                <tr style="text-align: left; font-size: smaller;">
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th><br>IVA</th>
-                    <td><br><?php  print_r($acm);?></td>
-                </tr>
-                <tr style="text-align: left; font-size: smaller;">
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th>TOTAL VENTAS</th>
-                    <td><?php  print_r($acum+$acm);?></td>
-                </tr>
-            </tfoot>
+            
             
 
         </table>
-        
-            
 </body>
 </html>

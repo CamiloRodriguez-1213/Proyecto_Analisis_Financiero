@@ -8,6 +8,7 @@
     $pre_unitario = $_POST["pre_unitario"];
     $pre_total = ($pre_unitario*$cantidad);
     $hoy= date('Y-m-d');
+    $imagen_producto=addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
 
     $sql = "insert into inventario(nombre_producto,categoria,cantidad,precio_unitario,precio_total,fecha)
         values('$nombre', '$categoria', ' $cantidad', ' $pre_unitario', ' $pre_total', ' $hoy')";
