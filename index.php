@@ -36,7 +36,7 @@
                         <div class="card-body">
                             <h4><?= $mostrar['nombre_producto'] ?></h4>
                             <h4><small>$<?= $mostrar['precio_unitario'] ?></small></h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text"> Especificacion.</p>
                         </div>
                     </div>
                 </div>

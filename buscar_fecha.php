@@ -42,6 +42,8 @@
                 <td>CANTIDAD</td>
                 <td>PRECIO UNITARIO</td>
                 <td>PRECIO TOTAL</td>
+                <td> IVA (19%)</td>  
+                <td>PRECIO + IVA</td>             
                 <td>FECHA</td>
                 
             </tr>
@@ -54,8 +56,10 @@
                     <td><?= $mostrar['nombre_producto'] ?></td>
                     <td><?= $mostrar['categoria'] ?></td>
                     <td><?= $mostrar['cantidad'] ?></td>
-                    <td><?= $mostrar['precio_unitario'] ?></td>
-                    <td><?= $mostrar['precio_total'] ?></td>
+                    <td>$ <?= $mostrar['precio_unitario'] ?></td>
+                    <td>$ <?= $mostrar['precio_unitario'] * $mostrar['cantidad']  ?></td>
+                    <td>$ <?= ($mostrar['precio_unitario']* 0.19) + $mostrar['precio_unitario']  ?></td>                  
+                    <td>$ <?=($mostrar['precio_unitario']* 0.19 + $mostrar['precio_unitario']) * $mostrar['cantidad'] ?></td>  
                     <td><?= $mostrar['fecha'] ?></td>
                 </tr>
                 <div>
@@ -72,7 +76,7 @@
                     <th></th>
                     <th></th>
                     <th><br>IVA</th>
-                    <td><br><?php  print_r($acm);?></td>
+                    <td><br>$ <?php  print_r($acm);?></td>
                 </tr>
                 <tr style="text-align: left; font-size: smaller;">
                     <th></th>
@@ -80,7 +84,7 @@
                     <th></th>
                     <th></th>
                     <th>TOTAL VENTAS</th>
-                    <td><?php  print_r($acum+$acm);?></td>
+                    <td>$ <?php  print_r($acum+$acm);?></td>
                 </tr>
             </tfoot>
             

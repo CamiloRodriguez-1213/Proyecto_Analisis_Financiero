@@ -14,8 +14,8 @@
 
 
 -- Volcando estructura de base de datos para proyecto
-CREATE DATABASE IF NOT EXISTS `proyecto` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `proyecto`;
+CREATE DATABASE IF NOT EXISTS `proyectoanalisis` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `proyectoanalisis`;
 
 -- Volcando estructura para tabla proyecto.inventario
 CREATE TABLE IF NOT EXISTS `inventario` (

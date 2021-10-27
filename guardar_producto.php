@@ -21,5 +21,5 @@
     }else{
         echo "No se ha podido guardar la persona. ";
     } 
-    /* header('Location: index.php'); */
+    header('Location: index.php');
 ?>
