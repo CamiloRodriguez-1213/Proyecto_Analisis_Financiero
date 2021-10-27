@@ -51,7 +51,7 @@ $res = DB::query($sql);
 <body>
     <table style="width: 100%; height: 100px;" border cellpadding=10 cellspacing=0>
         <tr>
-            <form action="" method="post">
+            <form action="" method="get">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     
                     <div class="row mr-2">
@@ -84,6 +84,33 @@ $res = DB::query($sql);
                         
                         </div>
                     </div>
+                    <div class="row mr-2">
+                        <div class="input-group">
+                            
+                        <select name="year" onchange="this.form.submit()" class="custom-select" id="inputGroupSelect04">
+                            <option selected>Año...</option>
+                            <?php 
+                            $sql = "SELECT * FROM anios";
+                            $result = DB::query($sql);
+                            while ($mostrar = $result->fetch_assoc()) { ?>
+									<option value="<?php echo $mostrar['id'];?>"><?php echo $mostrar['anio'];?></option>
+								<?php } ?>
+                        </select>
+                        
+                        </div>
+                    </div>
+                    <span class="py-1">Filtrar por Fecha</span>
+                    <div class="row mr-2">
+                        <div class="input-group">
+                            <input class="form-control" type="date" name="fecha">
+                            <span class="input-group-append">
+
+                            </span>
+                            <button class="btn btn-outline-secondary" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
                     
                 </div>
 
@@ -102,24 +129,25 @@ $res = DB::query($sql);
             <td>FECHA</td>
 
         </tr>
+        
         <tr>
         <?php
-            if(isset($_POST["dia"])){
-                $dia=$_POST["dia"];
+            if(isset($_GET["dia"]) && isset($_GET["dia"])!=""){
+                $dia=$_GET["dia"];
                 $sq= "SELECT * FROM inventario WHERE DAY(fecha)=$dia";
                 imp($sq);
-                
             }
-            if(isset($_POST["mes"])){
-                $mes=$_POST["mes"];
+            if(isset($_GET["mes"]) && isset($_GET["dia"])!=""){
+                $mes=$_GET["mes"];
                 $sq= "SELECT * FROM inventario WHERE MONTH(fecha)=$mes";
                 imp($sq);
                 
             }
-            if(isset($_POST["anio"])){
-                $anio=$_POST["anio"];
-                $sq= "SELECT * FROM inventario WHERE MONTH(fecha)=$mes";
+            if(isset($_GET["year"]) && isset($_GET["dia"])!=""){
+                $anio=$_GET["year"];
+                $sq= "SELECT * FROM inventario WHERE YEAR(fecha)=2021";
                 imp($sq);
+                
                 
             }
             
