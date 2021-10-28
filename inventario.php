@@ -57,7 +57,7 @@ $res = DB::query($sql);
                     <div class="row mr-2">
                         <div class="input-group">
                         <select name="dia" onchange="this.form.submit()" class="custom-select" id="inputGroupSelect04">
-                            <option>Día</option>
+                            <option><?php if(isset($_GET["dia"]) && $_GET["dia"]!="dia"){echo $_GET["dia"];}else{?>Día <?php }?> </option>
                             <?php 
                             $sql = "SELECT * FROM dias";
                             $result = DB::query($sql);
@@ -71,7 +71,7 @@ $res = DB::query($sql);
                     <div class="row mr-2">
                         <div class="input-group">
                         <select name="mes" onchange="this.form.submit()" class="custom-select" id="inputGroupSelect04">
-                        <option>Mes</option>
+                        <option><?php if(isset($_GET["mes"]) && $_GET["mes"]!="Mes"){echo $_GET["mes"];}else{?>Mes <?php }?> </option>
                             <?php 
                             $sql = "SELECT * FROM meses";
                             $result = DB::query($sql);
@@ -85,7 +85,7 @@ $res = DB::query($sql);
                     <div class="row mr-2">
                         <div class="input-group">
                         <select name="year" onchange="this.form.submit()" class="custom-select" id="inputGroupSelect04">
-                        <option>Año</option>
+                        <option><?php if(isset($_GET["year"]) && $_GET["year"]!="Año"){echo $_GET["year"];}else{?>Año <?php }?> </option>
                             
                             <?php 
                             $sql = "SELECT * FROM anios";
@@ -99,15 +99,15 @@ $res = DB::query($sql);
                     </div>
                     <span class="py-1">Filtrar por Fecha</span>
                     <div class="row mr-2">
-                        <div class="input-group">
-                            <input class="form-control" type="date" name="fecha">
-                            <span class="input-group-append">
-
-                            </span>
-                            <button class="btn btn-outline-secondary" type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
+                            <div class="input-group">
+                                <input class="form-control" type="date" name="fecha">
+                                <span class="input-group-append">
+                                
+                                </span>
+                                <button class="btn btn-outline-secondary" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
                     </div>
                     
                 </div>

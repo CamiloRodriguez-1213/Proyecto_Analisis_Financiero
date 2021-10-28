@@ -36,6 +36,7 @@
             <?php while($mostrar=mysqli_fetch_array($result)){ ?>
                 <tr style="font-size: small;">
                     <td><?= $mostrar['id'] ?></td>
+                    <td><?= $mostrar['nombre_producto'] ?></td>
                     
                 </tr>
                 <div>
