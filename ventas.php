@@ -17,10 +17,6 @@
     
 </head>
 <body>
-
-
-
-
 <form action="#" class="form-inline my-2 my-lg-0" method="GET">
           <div class="row mr-2">
             <div class="input-group">
@@ -33,15 +29,10 @@
                 </span>
             </div>
           </div>
-
-  </form>
-
-
-
-
+</form>
     <table style="width: 100%; height: 100px;" border cellpadding=10 cellspacing=0>
     <div class="row ">
-                <button class="btn btn-success btn-sm" type="submit" onclick="window.location.href=''">Nueva venta +</button>
+                <button class="btn btn-success btn-sm" type="submit" onclick="agregar()">Nueva venta +</button>
             </div>
             <tr class="bg-dark" style="align-items: center; font-size: smaller; --bs-bg-opacity: .20;">
             <td>ID</td>
@@ -51,43 +42,42 @@
                 <td>UNIDADES DISPONIBLES</td>
                 <td>CANTIDAD ADQUIRIDA</td>
                 <td>PRECIO TOTAL</td>     
-                <td>FECHA</td>
                 <td>ACCION</td>
-
-               
 
             </tr>
             
             <?php
 
-
-
             if(isset($_GET['busqueda'])){
-
                 if(empty($_GET['busqueda'])){
-                   
                 }else{
-                
                 $buscar = $_GET['busqueda'];
                 $sql= "SELECT * FROM inventario WHERE nombre_producto LIKE '%$buscar%'";
                 $result = DB::query($sql);
-               
                while($mostrar=mysqli_fetch_array($result)){ ?>
-                    <tr style="font-size: small;">
-                        <td><?= $mostrar['id'] ?></td>
-                        <td><?= $mostrar['nombre_producto'] ?></td>
-                        <td></td>                        
-                        <td>$ <?= $mostrar['precio_unitario'] ?></td>                     
-                        <td><?= $mostrar['cantidad'] ?></td>
-                        <td> <input type="number" min=1 max="<?= $mostrar['cantidad'] ?>"  value="1">  </td>
-                        <td>$ <?= $mostrar['precio_total'] ?></td>
-                        <td></td>
-                        <td><button class="btn btn-success btn-sm">+</button></td>
-                        
-                    </tr>
+                        <tr style="font-size: small;">
+                        <form action="actualizar_inventario.php" method="post">
+                            <td><?= $mostrar['id'] ?></td>
+                            <input hidden type="text" name="id" value="<?= $mostrar['id'] ?>">
+                            <td><?= $mostrar['nombre_producto'] ?></td>
+                            <td><?= $mostrar['categoria'] ?></td>
+                            <td>$ <?= $mostrar['precio_unitario'] ?></td>
+                            <td><?= $mostrar['cantidad'] ?></td>
+                            <input hidden type="text" name="canmx" value="<?= $mostrar['cantidad'] ?>">
+                            <td> 
+                                <input type="number" name="cant" min=1 max="<?= $mostrar['cantidad'] ?>" value="<?php if(!isset($_GET['cant'])){echo '1';} ?>" >
+                            
+                        </td>
+                            <td>$ <?= $mostrar['precio_total'] ?></td>
+                            <td><button type="submit" class="btn btn-success btn-sm">+</button></td>
+                        </tr>
+                    </form>
+                    
                     <div>
                 
                 <?php }
+                
+
                 }
             }
 

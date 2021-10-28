@@ -22,13 +22,31 @@ CREATE TABLE IF NOT EXISTS `anios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `anio` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla proyecto.anios: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla proyecto.anios: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `anios` DISABLE KEYS */;
 INSERT INTO `anios` (`id`, `anio`) VALUES
-	(1, '2021');
+	(1, '2000'),
+	(2, '2021');
 /*!40000 ALTER TABLE `anios` ENABLE KEYS */;
+
+-- Volcando estructura para tabla proyecto.compras
+CREATE TABLE IF NOT EXISTS `compras` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_producto` varchar(50) NOT NULL DEFAULT '0',
+  `categoria` varchar(50) DEFAULT NULL,
+  `cantidad` int(11) NOT NULL DEFAULT '0',
+  `precio_unitario` int(11) NOT NULL DEFAULT '0',
+  `precio_total` int(11) NOT NULL DEFAULT '0',
+  `fecha` date DEFAULT NULL,
+  `imagen_producto` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Volcando datos para la tabla proyecto.compras: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `compras` DISABLE KEYS */;
+/*!40000 ALTER TABLE `compras` ENABLE KEYS */;
 
 -- Volcando estructura para tabla proyecto.dias
 CREATE TABLE IF NOT EXISTS `dias` (
