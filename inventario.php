@@ -56,9 +56,8 @@ $res = DB::query($sql);
                     
                     <div class="row mr-2">
                         <div class="input-group">
-                            
                         <select name="dia" onchange="this.form.submit()" class="custom-select" id="inputGroupSelect04">
-                            <option selected>Día...</option>
+                            <option>Día</option>
                             <?php 
                             $sql = "SELECT * FROM dias";
                             $result = DB::query($sql);
@@ -71,9 +70,8 @@ $res = DB::query($sql);
                     </div>
                     <div class="row mr-2">
                         <div class="input-group">
-                            
                         <select name="mes" onchange="this.form.submit()" class="custom-select" id="inputGroupSelect04">
-                            <option selected>Meses...</option>
+                        <option>Mes</option>
                             <?php 
                             $sql = "SELECT * FROM meses";
                             $result = DB::query($sql);
@@ -86,9 +84,9 @@ $res = DB::query($sql);
                     </div>
                     <div class="row mr-2">
                         <div class="input-group">
-                            
                         <select name="year" onchange="this.form.submit()" class="custom-select" id="inputGroupSelect04">
-                            <option selected>Año...</option>
+                        <option>Año</option>
+                            
                             <?php 
                             $sql = "SELECT * FROM anios";
                             $result = DB::query($sql);
@@ -132,22 +130,20 @@ $res = DB::query($sql);
         
         <tr>
         <?php
-            if(isset($_GET["dia"]) && isset($_GET["dia"])!=""){
+            if(isset($_GET["dia"]) && $_GET["dia"]!="Día"){
                 $dia=$_GET["dia"];
                 $sq= "SELECT * FROM inventario WHERE DAY(fecha)=$dia";
                 imp($sq);
             }
-            if(isset($_GET["mes"]) && isset($_GET["dia"])!=""){
+            if(isset($_GET["mes"]) && $_GET["mes"]!="Meses"){
                 $mes=$_GET["mes"];
                 $sq= "SELECT * FROM inventario WHERE MONTH(fecha)=$mes";
-                imp($sq);
-                
+                imp($sq); 
             }
-            if(isset($_GET["year"]) && isset($_GET["dia"])!=""){
+            if(isset($_GET["year"]) && $_GET["year"]!="Año" && empty($_GET["mes"]) ){
                 $anio=$_GET["year"];
-                $sq= "SELECT * FROM inventario WHERE YEAR(fecha)=2021";
+                $sq= "SELECT * FROM inventario WHERE YEAR(fecha)=$anio";
                 imp($sq);
-                
                 
             }
             
