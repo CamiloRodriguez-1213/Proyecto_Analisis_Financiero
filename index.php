@@ -15,19 +15,31 @@ $result = DB::query($sql);
 </head>
 
 <body>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="https://http2.mlstatic.com/D_NQ_601588-MLA47967683664_102021-OO.webp" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="https://cdn2.hubspot.net/hubfs/3815039/Blog_GrupoBIT_1600x478px_29042020.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="https://cdn2.hubspot.net/hubfs/3815039/Blog_GrupoBIT_1600x478px_29042020.jpg" alt="Third slide">
-            </div>
-        </div>
+ 
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://http2.mlstatic.com/D_NQ_906940-MLA47810670488_102021-OO.webp" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://http2.mlstatic.com/D_NQ_601588-MLA47967683664_102021-OO.webp" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://http2.mlstatic.com/D_NQ_914175-MLA47967683904_102021-OO.webp" class="d-block w-100" alt="...">
+      </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
     <div class="row justify-content-around sm-12 md-4">
         <?php while ($mostrar = mysqli_fetch_array($result)) { ?>
             <div class="col">
